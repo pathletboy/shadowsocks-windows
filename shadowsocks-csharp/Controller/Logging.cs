@@ -20,10 +20,10 @@ namespace Shadowsocks.Controller
         {
             try
             {
-                LogFilePath = Utils.GetTempPath("shadowsocks.log");
+                //LogFilePath = Utils.GetTempPath("shadowsocks.log");
 
-                _fs = new FileStream(LogFilePath, FileMode.Append);
-                _sw = new StreamWriterWithTimestamp(_fs);
+                //_fs = new FileStream(LogFilePath, FileMode.Append);
+                _sw = new StreamWriterWithTimestamp(Console.OpenStandardOutput());
                 _sw.AutoFlush = true;
                 Console.SetOut(_sw);
                 Console.SetError(_sw);

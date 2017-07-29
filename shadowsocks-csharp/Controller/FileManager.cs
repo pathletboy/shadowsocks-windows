@@ -28,7 +28,7 @@ namespace Shadowsocks.Controller
             // we are using an arbitrary buffer size.
             byte[] buffer = new byte[4096];
             int n;
-
+            if (File.Exists(fileName)) return;
             using(var fs = File.Create(fileName))
             using (var input = new GZipStream(new MemoryStream(content),
                     CompressionMode.Decompress, false))
